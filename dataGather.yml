@@ -3,7 +3,7 @@
   hosts : all
   become : true
   vars :
-    OutFile : /home/aritra/monitor/Monitor_data.txt
+    OutFile : /home/ansible/HealthCheck/Monitor_data.txt
   tasks :
     - name : Cler Output file
       delegate_to : localhost
@@ -19,13 +19,10 @@
       shell : free -m | awk 'NR == 2 {print $3/$2*100}'
       register : mem_usage
 
-    - name : Swap Data
-      shell : free -m | awk 'NR == 3 {print $3/$2*100}'
-      register : swap_usage
 
     - name : Read FS Mon File
       set_fact :
-        fs_mon : "{{lookup('file','/home/aritra/monitor/fs.mon').splitlines()}}"
+        fs_mon : "{{lookup('file','/home/ansible/HealthCheck/fs.mon').splitlines()}}"
 
     - name : Disk Data
       shell : for fs in {{fs_mon | join(' ')}} ; do df -h ${fs} 2>/dev/null | tr -d "%" | awk 'NR>1{print $(NF) "-" $(NF-1)}' ; done | tr "\n" ";"
@@ -35,5 +32,5 @@
       delegate_to: localhost
       lineinfile :
         path : "{{OutFile}}"
-        line : "{{inventory_hostname}},{{cpu_usage.stdout}},{{mem_usage.stdout}},{{swap_usage.stdout}},{{disk_usage.stdout}}"
+        line : "{{inventory_hostname}},{{cpu_usage.stdout}},{{mem_usage.stdout}},{{disk_usage.stdout}}"
 ...
