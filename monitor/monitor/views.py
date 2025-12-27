@@ -19,12 +19,7 @@ def Dashboard(req):
         else:
             mem_color="green"
 
-        if float(d[3]) > threshold:
-            swap_color="red"
-        else:
-            swap_color="green"
-
-        dsk = d[4].strip().split(";")
+        dsk = d[3].strip().split(";")
         flag = 1
         dsk_status = []
         for ds in dsk:
@@ -51,10 +46,6 @@ def Dashboard(req):
         "Memory" : {
             "color": mem_color,
             "status" : d[2]
-            },
-        "Swap" : {
-            "color": swap_color,
-            "status" : d[3]
             },
         "Disk" : {
                 "color" : dsk_color,
