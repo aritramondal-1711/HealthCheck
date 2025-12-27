@@ -1,51 +1,29 @@
-### Project Overview: Server Health Monitoring Using Ansible and Django
+### 🚀 Project Showcase: Azure Server Health Monitoring using Ansible + Django + NGINX
 
-This project is designed to **collect health and status information from servers hosted in Microsoft Azure** and **display the collected data through a web application built with Django**.
+I built a Server Health Check Monitoring system to centrally monitor Azure-based servers using an agentless and scalable approach.
 
-The solution uses **Ansible** for automation and data collection, and **Django** as the backend framework to present the information in a user-friendly web interface.
+🔧 Tech Stack
 
----
+Ansible – Agentless health data collection
 
-### How the System Works
+Django – Backend logic & dashboard rendering
 
-1. **Azure Servers**
+NGINX – Reverse proxy & web server
 
-   * Multiple virtual machines are running in **Microsoft Azure**.
-   * These servers are configured to allow secure access (SSH/WinRM) from the Ansible control node.
+Azure VMs – Infrastructure layer
 
-2. **Ansible (Data Collection Layer)**
+### 📊 What it does
 
-   * Ansible is used to connect to Azure servers without installing any agents.
-   * Playbooks are executed to gather health-related metrics such as:
+Collects CPU, Memory, and Disk utilization from multiple Azure servers
 
-     * CPU usage
-     * Memory usage
-     * Disk utilization
-     * Uptime
-     * Running services
-     * OS and kernel information
-   * The collected data is formatted (JSON/structured output) for easy processing.
+Displays real-time health status in a clean web dashboard
 
-3. **Django (Web Application Layer)**
+Uses threshold-based checks to mark disk health as OK / Warning / Critical
 
-   * The Django application receives the health data collected by Ansible.
-   * Data is stored in a database for historical tracking and reporting.
-   * Django views and templates are used to:
+Eliminates the need to log in to individual servers
 
-     * Display real-time server health
-     * Show server-wise dashboards
-     * Highlight warning or critical thresholds
-
-4. **Automation & Integration**
-
-   * Ansible playbooks can be triggered:
-
-     * Manually
-     * On a schedule (cron / Azure automation)
-     * Via Django (using background tasks like Celery or subprocess calls)
-   * This ensures regular and automated health checks.
-
----
+### 📌 Why this project
+As a Linux administrator, I wanted a lightweight, customizable monitoring solution without relying on third-party tools. This project helped me strengthen my skills in automation, backend development, and infrastructure monitoring.
 
 ### Key Benefits
 
@@ -62,6 +40,15 @@ The solution uses **Ansible** for automation and data collection, and **Django**
 This system is useful for **Linux administrators and DevOps engineers** who want a lightweight, customizable monitoring solution for Azure-hosted servers without relying on third-party monitoring tools.
 
 ---------------------------------------------------------------------------------------------------
+### Prerequites:
+Copy the repo in user "ansible" home directory
+All M's should have python3.x, ansible, django, nginx , sysstat installed
+Run "python3 manage.py collectstatic"
+Create below mentioned custom services
+Edit NGINX coniguration with below
+Disable selinux
+Give "o+rx" permission to /home, /home/ansible and all insie /home/ansible/HealthCheck for NGINX to work
+----------------------------------------------------------------------------------------------------
 
 Using Ansible Colletng data -
 Play book :-
