@@ -41,13 +41,14 @@ This system is useful for **Linux administrators and DevOps engineers** who want
 
 ---------------------------------------------------------------------------------------------------
 ### Prerequites:
-Copy the repo in user "ansible" home directory
-All M's should have python3.x, ansible, django, nginx , sysstat installed
-Run "python3 manage.py collectstatic"
-Create below mentioned custom services
-Edit NGINX coniguration with below
-Disable selinux
-Give "o+rx" permission to /home, /home/ansible and all insie /home/ansible/HealthCheck for NGINX to work
+
+* Copy the repo in user "ansible" home directory
+* All M's should have python3.x, ansible, django, nginx , sysstat installed
+* Run "python3 manage.py collectstatic"
+* Create below mentioned custom services
+* Edit NGINX coniguration with below
+* Disable selinux
+* Give "o+rx" permission to /home, /home/ansible and all insie /home/ansible/HealthCheck for NGINX to work
 ----------------------------------------------------------------------------------------------------
 
 Using Ansible Colletng data -
