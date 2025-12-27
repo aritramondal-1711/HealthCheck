@@ -152,7 +152,7 @@ Play book :-
         }
     }
 
-# Finally the wHealhCeck is visible in web using NGINX http://<server IP>
+# Finally the HealhCheck is visible in web using NGINX http://<server IP>
 
 <img width="1353" height="390" alt="image" src="https://github.com/user-attachments/assets/efa3adec-8d25-4b69-a89d-cdaae7a2c734" />
 
