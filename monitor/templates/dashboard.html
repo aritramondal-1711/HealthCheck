@@ -15,7 +15,6 @@
                 <th class="table_head">Server</th>
                 <th class="table_head">CPU Utilization</th>
                 <th class="table_head">Memory Utilization</th>
-                <th class="table_head">Swap Utilization</th>
                 <th class="table_head">Disk Utilization</th>
             </tr>
             {% for key,value in DATA.items %}
@@ -23,7 +22,6 @@
                 <td class="table_row" style="color:white">{{value.Host}}</td>
                 <td class="table_row" style="color:{{value.CPU.color}}">{{value.CPU.status}} %</td>
                 <td class="table_row" style="color:{{value.Memory.color}}">{{value.Memory.status}} %</td>
-                <td class="table_row" style="color:{{value.Swap.color}}">{{value.Swap.status}} %</td>
                 <td class="table_row" style="color:{{value.Disk.color}}">{{value.Disk.status}}</td>
             </tr>
             {% endfor %}
