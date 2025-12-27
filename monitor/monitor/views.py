@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 def Dashboard(req):
-    f=open("/home/aritra/monitor/Monitor_data.txt","r")
+    f=open("/home/ansible/HealthCheck/Monitor_data.txt","r")
     data = {}
     
     count = 1
