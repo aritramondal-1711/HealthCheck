@@ -51,7 +51,7 @@ This system is useful for **Linux administrators and DevOps engineers** who want
 * Give "o+rx" permission to /home, /home/ansible and all insie /home/ansible/HealthCheck for NGINX to work
 ----------------------------------------------------------------------------------------------------
 
-Using Ansible Colletng data -
+# Using Ansible Colletng data -
 Play book :-
 
         [root@monitorsrv ~]# cat /home/ansible/HealthCheck/dataGather.yml 
@@ -91,7 +91,7 @@ Play book :-
             line : "{{inventory_hostname}},{{cpu_usage.stdout}},{{mem_usage.stdout}},{{disk_usage.stdout}}"
     ...
 
-Custom Service that will run the playboot after each 2 minutes:-
+# Custom Service that will run the playboot after each 2 minutes:-
 
         [root@monitorsrv ~]# cat /etc/systemd/system/datacollection.service 
         [Unit]
@@ -108,7 +108,7 @@ Custom Service that will run the playboot after each 2 minutes:-
         [Install]
         WantedBy=multi-user.target
 
-Custom Servie for Django to run -
+# Custom Servie for Django to run -
 
     [root@monitorsrv ~]# cat /etc/systemd/system/healthmonitor.service 
       [Unit]
@@ -126,7 +126,7 @@ Custom Servie for Django to run -
       [Install]
       WantedBy=multi-user.target
 
-Configuration DOne on NGINX -
+# Configuration DOne on NGINX -
 
     server {
         listen       80 default_server;
@@ -152,8 +152,13 @@ Configuration DOne on NGINX -
         }
     }
 
-Finally the wHealhCeck is visible in web using NGINX http://<server IP>
+# Finally the wHealhCeck is visible in web using NGINX http://<server IP>
 
 <img width="1353" height="390" alt="image" src="https://github.com/user-attachments/assets/efa3adec-8d25-4b69-a89d-cdaae7a2c734" />
+
+# Diagram
+
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/98ae9eed-84cd-4fec-844d-6956b590bfa4" />
+
 
 
