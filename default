@@ -1,0 +1,15 @@
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+
+	server_name _;
+
+	location / {
+		proxy_pass http://localhost:8000;
+		try_files $uri $uri/ =404;
+	}
+	location /static/ {
+		alias /home/ansible/HealthCheck/monitor/staticfiles/;
+	}
+
+}
