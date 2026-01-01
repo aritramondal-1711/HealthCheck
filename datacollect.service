@@ -1,0 +1,13 @@
+[Unit]
+Description=Data Collection Service
+After=network.target
+
+[Service]
+Type=simple
+User=ansible
+WorkingDirectory=/home/ansible/HealthCheck/
+ExecStart=/bin/bash -c "while true; do ansible-playbook dataGather.yml; sleep 60; done"
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
