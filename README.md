@@ -140,7 +140,7 @@ Play book :-
         }
 
         location /static/ {
-            alias /home/ansible/HealthCheck/monitor/static/;
+            alias /home/ansible/HealthCheck/monitor/staticfiles/;
         }
 
         error_page 404 /404.html;
