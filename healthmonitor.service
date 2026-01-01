@@ -1,0 +1,13 @@
+[Unit]
+Description=Health Monitoring Service
+After=network.target
+
+[Service]
+Type=simple
+User=ansible
+WorkingDirectory=/home/ansible/HealthCheck/monitor/
+ExecStart=python3 manage.py runserver
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
